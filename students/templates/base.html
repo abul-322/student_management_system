@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Student Management System{% endblock %}</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'students/css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+
+        <div class="logo">
+            <h2>Student Management</h2>
+        </div>
+
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Students</a>
+            <a href="#">Add Student</a>
+            <a href="/admin/">Admin</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 Student Management System. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
