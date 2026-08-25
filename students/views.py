@@ -91,3 +91,30 @@ def delete_student(request, id):
     student.delete()
 
     return redirect("dashboard")
+
+
+def login_view(request):
+
+    if request.method == 'POST':
+
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if username == 'admin' and password == 'admin123':
+
+            return redirect('dashboard')
+
+        else:
+
+            return render(
+                request,
+                'students/login.html',
+                {
+                    'error': 'Invalid username or password.'
+                }
+            )
+
+    return render(
+        request,
+        'students/login.html'
+    )

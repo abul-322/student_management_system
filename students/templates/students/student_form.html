@@ -2,11 +2,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Add Student</title>
+    <title>Student Management System</title>
 
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
@@ -17,20 +18,33 @@
 
         <div class="form-card">
 
-            <h1>Add Student</h1>
+            {% if student %}
+                <h1>Edit Student</h1>
+            {% else %}
+                <h1>Add Student</h1>
+            {% endif %}
+
 
             <form method="POST">
+
                 {% csrf_token %}
 
                 {{ form.as_p }}
 
+
                 <div class="form-buttons">
 
                     <button type="submit" class="btn btn-success">
-                        Save Student
+                        {% if student %}
+                            Update Student
+                        {% else %}
+                            Save Student
+                        {% endif %}
                     </button>
 
-                    <a href="{% url 'student_list' %}" class="btn btn-secondary">
+
+                    <a href="{% url 'dashboard' %}"
+                       class="btn btn-secondary">
                         Cancel
                     </a>
 
@@ -43,4 +57,5 @@
     </div>
 
 </body>
+
 </html>
