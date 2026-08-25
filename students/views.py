@@ -9,7 +9,6 @@ from .forms import StudentForm
 # ================================
 
 def dashboard(request):
-
     students = Student.objects.all()
 
     return render(
